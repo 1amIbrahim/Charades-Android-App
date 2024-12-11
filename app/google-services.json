@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "61726179879",
+    "project_id": "charades-bd065",
+    "storage_bucket": "charades-bd065.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61726179879:android:4b2230c7ced935a3d14402",
+        "android_client_info": {
+          "package_name": "com.example.charades"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYgwv_3ImXjEYdJnRQy1UvPD5rl1PyBZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
