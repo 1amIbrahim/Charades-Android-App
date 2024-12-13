@@ -3,6 +3,7 @@ package com.example.charades;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -62,7 +63,8 @@ public class postgame extends AppCompatActivity {
                 tv.setText(item);
                 tv.setTypeface(font);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-                tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);
+                tv.setTextColor(Color.WHITE);
                 tv.setLayoutParams(lm);
                 if(!isCorrect[idx]){
                     tv.setAlpha(0.5f);

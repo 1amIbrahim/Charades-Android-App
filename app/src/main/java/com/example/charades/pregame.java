@@ -1,10 +1,12 @@
 package com.example.charades;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -39,6 +41,7 @@ public class pregame extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pregame);
 
+        ImageView img = findViewById(R.id.preimage);
         Button back = findViewById(R.id.backbtn);
         Button min = findViewById(R.id.minus);
         Button sum = findViewById(R.id.plus);
@@ -52,7 +55,25 @@ public class pregame extends AppCompatActivity {
         Intent i = getIntent();
         name =i.getStringExtra("cat");
         progressBar = findViewById(R.id.progressBar);
+        name = name.toLowerCase();
+        if(name.equals("festivals and holidays")){
+            name = "festivals";
+        }
+        if(name.equals("tv shows")){
+            name = "tvshows";
+        }
+        if(name.equals("video game")){
+            name = "games";
+        }
+        @SuppressLint("DiscouragedApi") int resId = getResources().getIdentifier(name, "drawable", getPackageName());
 
+        // Check if the resource ID is valid (it should not be 0)
+        if (resId != 0) {
+            img.setImageResource(resId);
+        } else {
+            // Handle the case where the image resource doesn't exist
+            Log.e("Error", "Resource not found");
+        }
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference myref = db.getReference("charades");

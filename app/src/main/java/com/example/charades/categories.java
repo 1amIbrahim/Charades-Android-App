@@ -38,6 +38,16 @@ public class categories extends AppCompatActivity {
         ImageButton Places = findViewById(R.id.places);
         ImageButton TvShow = findViewById(R.id.tvshow);
 
+        ImageButton custom = findViewById(R.id.custombtn);
+
+        custom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(categories.this, customview.class);
+
+                startActivity(intent);
+            }
+        });
 
         Animal.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,17 +25,37 @@
             android:text="Categories"
             android:textColor="@color/white"
             android:fontFamily="@font/adlam_display"
-            android:textSize="48sp"
+            android:textSize="54sp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/custom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:elevation="16dp"
+            app:cardCornerRadius="16dp">
+
+            <ImageButton
+                android:id="@+id/custombtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/plus" />
+        </androidx.cardview.widget.CardView>
 
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_below="@id/textView"
+            android:layout_below="@id/custom"
             android:padding="6dp"
             android:layout_centerHorizontal="true">
 
@@ -64,7 +84,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/white"
-                            android:src="@drawable/animals2"
+                            android:src="@drawable/animals"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
 
@@ -129,48 +149,7 @@
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
                 </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:layout_marginTop="20dp">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="250dp"
-                        android:layout_weight="1"
-                        app:cardCornerRadius="16dp"
-                        app:cardBackgroundColor="#FFFFFF"
-                        app:cardElevation="4dp"
-                        android:layout_margin="8dp">
-
-                        <ImageButton
-                            android:id="@+id/books"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:src="@drawable/animals1"
-                            android:scaleType="centerCrop" />
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="250dp"
-                        android:layout_weight="1"
-                        app:cardCornerRadius="16dp"
-                        app:cardBackgroundColor="#FFFFFF"
-                        app:cardElevation="4dp"
-                        android:layout_margin="8dp">
-
-                        <ImageButton
-                            android:id="@+id/festivals"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/white"
-                            android:src="@drawable/food"
-                            android:scaleType="centerCrop" />
-                    </androidx.cardview.widget.CardView>
-                </TableRow>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,6 +192,7 @@
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
                 </TableRow>
+
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -251,7 +231,49 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/white"
-                            android:src="@drawable/food"
+                            android:src="@drawable/tvshow"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardElevation="4dp"
+                        android:layout_margin="8dp">
+
+                        <ImageButton
+                            android:id="@+id/books"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:src="@drawable/books"
+                            android:scaleType="centerCrop" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="16dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardElevation="4dp"
+                        android:layout_margin="8dp">
+
+                        <ImageButton
+                            android:id="@+id/festivals"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:src="@drawable/festivals"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
                 </TableRow>
@@ -275,7 +297,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/white"
-                            android:src="@drawable/animals1"
+                            android:src="@drawable/songs"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
 
@@ -293,10 +315,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/white"
-                            android:src="@drawable/food"
+                            android:src="@drawable/hobbie"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
                 </TableRow>
+
 
                 <!-- Repeat similar TableRow blocks for other categories -->
 

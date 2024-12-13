@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Charades"
         tools:targetApi="31">
         <activity
+            android:name=".customcreate"
+            android:exported="false" />
+        <activity
+            android:name=".customview"
+            android:exported="false" />
+        <activity
             android:name=".postgame"
             android:exported="false" />
         <activity

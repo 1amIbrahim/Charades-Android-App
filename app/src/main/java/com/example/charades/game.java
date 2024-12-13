@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
@@ -126,49 +127,78 @@ public class game extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-                    float acceleration_x = sensorEvent.values[0];
-                    float acceleration_y = sensorEvent.values[1];
                     float acceleration_z = sensorEvent.values[2];
 
                     if (reset && acceleration_z > 9.0f) {
-
-                        isCorrect.add(false);
-                        idx++;
-                        visited.add(items[idx]);
                         reset = false;
                         Cross.setVisibility(View.VISIBLE);
-                        if(idx == items.length-1){
-                            idx = 0;
+
+                        // Play "pass" sound
+                        MediaPlayer mediaPlayer = MediaPlayer.create(game.this, R.raw.pass);
+                        if (mediaPlayer != null) {
+                            mediaPlayer.start();
+                            mediaPlayer.setOnCompletionListener(mp -> mp.release());
+                        } else {
+                            Log.e("MediaPlayer", "Failed to play 'pass' sound.");
                         }
+
+                        // Delay logic for incorrect input
+                        new android.os.Handler().postDelayed(() -> {
+                            isCorrect.add(false);
+                            idx++;
+                            if (idx == items.length) {
+                                back.performClick();
+                                idx = 0;
+                            }
+                            visited.add(items[idx]);
+                            item.setText(items[idx]);
+                            Cross.setVisibility(View.GONE);
+                        }, 1000); // 1 second delay
+
                         if (vibrator != null) {
-                            // Trigger a vibration for 500 milliseconds
                             vibrator.vibrate(200);
                         }
-                        item.setText(items[idx]);
+
                     } else if (reset && acceleration_z < -9.0f) {
-                        visited.add(items[idx]);
-                        isCorrect.add(true);
-                        score++;
-                        scoreview.setText("SCORE: "+score);
-                        idx++;
                         reset = false;
                         Tick.setVisibility(View.VISIBLE);
-                        if(idx == items.length-1){
-                            idx = 0;
+
+                        // Play "correct" sound
+                        MediaPlayer mediaPlayer = MediaPlayer.create(game.this, R.raw.correct);
+                        if (mediaPlayer != null) {
+                            mediaPlayer.start();
+                            mediaPlayer.setOnCompletionListener(mp -> mp.release());
+                        } else {
+                            Log.e("MediaPlayer", "Failed to play 'correct' sound.");
                         }
-                        item.setText(items[idx]);
+
+                        // Delay logic for correct input
+                        new android.os.Handler().postDelayed(() -> {
+                            visited.add(items[idx]);
+                            isCorrect.add(true);
+                            score++;
+                            scoreview.setText("SCORE: " + score);
+                            idx++;
+                            if (idx == items.length) {
+                                back.performClick();
+                                idx = 0;
+                            }
+                            item.setText(items[idx]);
+                            Tick.setVisibility(View.GONE);
+                        }, 1000); // 1 second delay
+
                         if (vibrator != null) {
-                            // Trigger a vibration for 500 milliseconds
                             vibrator.vibrate(200);
                         }
                     }
-                    if(acceleration_z > -1.0f && acceleration_z < 1.0f){
+
+                    if (acceleration_z > -2.0f && acceleration_z < 2.0f) {
                         reset = true;
-                        Cross.setVisibility(View.GONE);
-                        Tick.setVisibility(View.GONE);
                     }
                 }
             }
+
+
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int accuracy) {}
