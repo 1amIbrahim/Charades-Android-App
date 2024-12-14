@@ -11,24 +11,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
+        android:layout_height="match_parent"
+        android:padding="16dp">
+        <ImageButton
             android:id="@+id/backbtn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:backgroundTint="@color/darkOrange"
-            android:elevation="16dp"
-            android:text="Close"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:translationZ="16dp"
-            android:layout_toStartOf="@id/cardView2"
-            android:layout_above="@id/cardView2"
-            android:layout_marginHorizontal="5dp"
-            />
-
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/backOrange"
+            app:srcCompat="@drawable/arrow"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"/>
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="550dp"
@@ -49,6 +43,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/adlam_display"
                 android:text="item"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="60sp" />
         </androidx.cardview.widget.CardView>
@@ -115,8 +110,8 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/cardView2"
-            android:layout_marginVertical="24dp"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

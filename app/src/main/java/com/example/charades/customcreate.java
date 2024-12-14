@@ -72,37 +72,32 @@ public class customcreate extends AppCompatActivity {
         });
 
         collectButton.setOnClickListener(v -> {
-
-            ArrayList<String> words = new ArrayList<String>();
+            ArrayList<String> words = new ArrayList<>();
             String name = nametxt.getText().toString();
-            if(collectWords(cardContainer,words)){
+
+            if (collectWords(cardContainer, words)) {
                 Toast.makeText(this, "Collected words: ", Toast.LENGTH_SHORT).show();
 
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
                 DatabaseReference userRef = db.getReference("charades").child("Users").child(String.valueOf(id)).child("categories");
 
-
-                Map<String, Object> categoryData = new HashMap<>();
-                categoryData.put(name, words);
-
-
-                userRef.setValue(categoryData).addOnCompleteListener(task -> {
+                // Add the new category without overwriting the existing ones
+                userRef.child(name).setValue(words).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Log.d("Firebase", "Categories added successfully under user " + id);
+                        Log.d("Firebase", "Category '" + name + "' added successfully under user " + id);
                     } else {
-                        Log.e("Firebase", "Failed to add categories: ", task.getException());
+                        Log.e("Firebase", "Failed to add category: ", task.getException());
                     }
                 });
+            } else {
+                Toast.makeText(this, "Enter At Least 10 Cards", Toast.LENGTH_SHORT).show();
             }
-            else{
-                Toast.makeText(this,"Enter At Least 10 Cards",Toast.LENGTH_SHORT).show();
-            }
-            // Now you have the words in the 'words' ArrayList, you can use them as needed
 
-            Intent intent = new Intent(customcreate.this,customview.class);
+            // Navigate back to the custom view
+            Intent intent = new Intent(customcreate.this, customview.class);
             startActivity(intent);
-
         });
+
     }
 
     private void createCard(String word, LinearLayout cardContainer) {

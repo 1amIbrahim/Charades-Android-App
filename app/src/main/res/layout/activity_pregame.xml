@@ -11,7 +11,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
         <Button
             android:id="@+id/startbtn"
@@ -25,9 +26,17 @@
             android:textSize="24sp"
             android:translationZ="16dp"
             android:layout_below="@id/cardView4"
-            android:layout_alignStart="@id/cardView4"
+            android:layout_centerHorizontal="true"
             android:layout_marginVertical="50dp"/>
-
+        <ImageButton
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/backOrange"
+            app:srcCompat="@drawable/arrow"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"/>
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
@@ -35,18 +44,28 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/startbtn"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:indeterminateTint="@color/white"
+            android:indeterminate="true"
             android:backgroundTint="@color/white" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="300dp"
-            android:layout_height="400dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="16dp"
+            android:id="@+id/precard"
+            android:layout_width="295dp"
+            android:layout_height="379dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="100dp"
+            app:cardBackgroundColor="@color/darkOrange"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="16dp">
+
+            <LinearLayout
+                android:id="@+id/prelinear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical" />
 
             <ImageView
                 android:id="@+id/preimage"
@@ -54,25 +73,10 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:contentDescription="Animal"
-                android:scaleType="centerCrop"
-                android:src="@drawable/animals" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/animals"
+                android:visibility="visible" />
         </androidx.cardview.widget.CardView>
-
-        <Button
-            android:id="@+id/backbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginBottom="56dp"
-            android:backgroundTint="#98CB00"
-            android:elevation="16dp"
-            android:text="Back"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:translationZ="16dp"
-            android:layout_below="@id/cardView4"
-            android:layout_alignEnd="@id/cardView4"
-            android:layout_marginVertical="50dp"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
@@ -80,7 +84,7 @@
             android:layout_height="50dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="16dp"
-            android:layout_below="@id/cardView"
+            android:layout_below="@id/precard"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp">
 
@@ -130,6 +134,7 @@
                     android:layout_toEndOf="@id/timetv"
                     android:backgroundTint="#98CB00"
                     android:text="+"
+                    android:textColor="@color/white"
                     android:textSize="24sp" />
             </RelativeLayout>
 

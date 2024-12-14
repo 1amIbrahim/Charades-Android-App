@@ -14,6 +14,7 @@ import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -100,7 +101,7 @@ public class game extends AppCompatActivity {
             }
         }.start();
 
-        Button back = findViewById(R.id.backbtn2);
+        ImageButton back = findViewById(R.id.backbtn2);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

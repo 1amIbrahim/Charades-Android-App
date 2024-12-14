@@ -77,7 +77,7 @@ public class categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(categories.this, pregame.class);
-                intent.putExtra("cat","Song");
+                intent.putExtra("cat","Songs");
                 startActivity(intent);
             }
         });
@@ -117,7 +117,7 @@ public class categories extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(categories.this, pregame.class);
-                intent.putExtra("cat","Holidays and Festivals");
+                intent.putExtra("cat","Festivals and Holidays");
                 startActivity(intent);
             }
         });

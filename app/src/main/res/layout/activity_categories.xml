@@ -16,8 +16,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="16dp">
+        <ImageButton
+            android:id="@+id/catback"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/backOrange"
+            app:srcCompat="@drawable/arrow"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"/>
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -27,8 +36,8 @@
             android:fontFamily="@font/adlam_display"
             android:textSize="54sp"
             android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="30dp"
+            android:layout_below="@id/catback"
+
             android:layout_marginBottom="10dp"/>
 
         <androidx.cardview.widget.CardView
@@ -41,13 +50,34 @@
             android:elevation="16dp"
             app:cardCornerRadius="16dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/white"
+                android:background="@color/white"
+                android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Create Custom Deck"
+                android:textSize="26dp"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/adlam_display"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"/>
+
             <ImageButton
                 android:id="@+id/custombtn"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/white"
-                android:src="@drawable/plus" />
+                android:src="@drawable/plus"
+                android:layout_toEndOf="@id/textView3"/>
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
         <ScrollView
@@ -315,7 +345,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/white"
-                            android:src="@drawable/hobbie"
+                            android:src="@drawable/hobbies"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
                 </TableRow>

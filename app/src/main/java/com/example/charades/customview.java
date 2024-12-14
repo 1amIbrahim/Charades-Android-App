@@ -161,6 +161,7 @@ public class customview extends AppCompatActivity {
             button.setOnClickListener(view -> {
                 Intent intent = new Intent(customview.this, pregame.class);
                 intent.putExtra("cat", category.getName());
+                intent.putExtra("custom",true);
                 startActivity(intent);
             });
 
